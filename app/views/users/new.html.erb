@@ -9,15 +9,23 @@
   <input id="user_password" type="password" name="user[password]"><br>
   <button type="submit">Go!</button>
 </form>
--->
-
 <%= form_tag("/users", method: "post") do %>
 
   <%= label_tag(:username)%>
-  <%= text_field_tag(:username)%>
+  <%= text_field_tag(:username, nil , placeholder: "Binh")%>
   <%= label_tag(:email)%>
   <%= email_field_tag(:email)%>
   <%= label_tag(:password)%>
   <%= password_field_tag(:password)%>
   <%= submit_tag("Gooo!")%>
 <% end %>
+
+
+-->
+<%= form_for(@user , html: {class: "niffty_form"} ) do |f| %>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+<% end %>
+
+
